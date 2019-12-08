@@ -10,19 +10,19 @@
   <body>
     <h1>Netlify Functions Examples</h1>
     <p>
-      Hi there! This is a playground to test out
-      <a href="https://www.netlify.com/docs/functions">Netlify’s Lambda Functions</a>.
+      嗨,您好!这是一个试验场
+      <a href="https://www.netlify.com/docs/functions">Netlify Lambda 函数</a>.
     </p>
     <p>
-      You can browse the code for this site on
-      <a href="https://github.com/imorente/netlify-functions-example">GitHub</a>,
-      or play around with the code yourself
+      您可以在 
+      <a href="https://github.com/imorente/netlify-functions-example">GitHub</a> 浏览该网站的代码,
+     或自己动手编译代码
       <a href="https://app.netlify.com/start/deploy?repository=https://github.com/ocsp/netlify-functions-example">
-      deploying a copy to Netlify</a>.
+      在 Netlify 上部署一个副本</a>.
     </p>
     <article>
       <h2>Hello, World!</h2>
-      <p>The inevitable Hello World example.</p>
+      <p>不可避免的 Hello World 示例。</p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello.js') %></code></pre>
       <h3>Try it out</h3>
       <p><a href="/.netlify/functions/hello">Say hello!</a></p>
@@ -31,8 +31,8 @@
     <article>
       <h2>Hello, World! (async version)</h2>
       <p>
-        The Hello World example can get sweeter with some async syntactic sugar.
-        With async, we can return the response instead of dealing with callbacks.
+        Hello World 示例可以通过使用一些异步语法来变得更好。
+         使用异步，我们可以返回响应而不是处理回调。
       </p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello_async.js') %></code></pre>
       <h3>Try it out</h3>
@@ -42,14 +42,14 @@
     <article>
       <h2>Hello, {name}</h2>
       <p>
-        Customize the greeting calling the Lambda endpoint with an optional
+       使用可选的自定义称呼 Lambda 函数的问候语
         <code>name</code> parameter.
       </p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello_name.js') %></code></pre>
       <h3>Try it out</h3>
       <form action="/.netlify/functions/hello_name">
         <p>
-          <label>What’s your name?<br/><input type="text" name="name"></label>
+          <label>你的名字?<br/><input type="text" name="name"></label>
         </p>
         <p><button type="submit">Say hello!</button></p>
       </form>
@@ -57,12 +57,12 @@
 
     <article>
       <h2>Hello, {name} (POST version)</h2>
-      <p>Let’s make sure we only process POST requests for our customized greeting.</p>
+      <p>确保我们只处理自定义问候语的 POST 请求。</p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello_name_post.js') %></code></pre>
       <h3>Try it out</h3>
       <form action="/.netlify/functions/hello_name_post" method="POST">
         <p>
-          <label>What’s your name?<br/><input type="text" name="name"></label>
+          <label>你的名字?<br/><input type="text" name="name"></label>
         </p>
         <p><button type="submit">Say hello!</button></p>
       </form>
@@ -70,22 +70,21 @@
     </article>
 
     <article>
-      <h2>Read environment variables</h2>
+      <h2>读取环境变量</h2>
       <p>
-        Storing secrets like API tokens can be tricky in web apps.
-        Lambdas and environment variables to the rescue!
+        在 Web 应用程序中,存储诸如 API 令牌之类的秘密可能很棘手.
+         Lambda 和环境变量可不是这样!
       </p>
       <p>
-        For this example, I’m using
+       举个例子,我正在用
         <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
-        to define environment variables locally (in a real project, I wouldn’t
-        commit that file to the repository!), and defining those same variables
-        in the Netlify site dashboard under
+        于本地定义环境变量（在实际项目中，我不会
+         将该文件提交到存储库）,并定义相同的变量
+         在 Netlify 网站仪表板下
         Settings > Build & deploy > Build environment variables, for production.
       </p>
       <p>
-        Note: environment variables get baked into your function at deploy
-        time, so you need to trigger a new deploy after you change them.
+       注意:在部署时,环境变量已纳入函数时间,因此您需要在更改它们后触发新的部署.
       </p>
       <pre class="language-js"><code><%= require('html-loader!./lambda/hello_env.js') %></code></pre>
       <h3>Try it out</h3>
